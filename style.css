@@ -1,0 +1,62 @@
+body {
+    margin: 0px;
+    font-family: monospace;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.calculator {
+    background-color: gray;
+    height: 450px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h4 {
+    margin: 10px 0px;
+    color: white;
+
+}
+
+.calculator-display {
+    height: 50px;
+    width: 200px;
+    background-color: lightgray;
+}
+
+.calculator-buttons {
+    height: 325px;
+    margin-top: 20px;
+    width: 250px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.button {
+    height: 50px;
+    width: 50px;
+    background-color: darkgrey;
+    color: white;
+    font-weight: 900;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#clearButton {
+    background-color: red;
+}
+
+#operatorButton {
+    background-color: darkslateblue;
+}
