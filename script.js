@@ -1,3 +1,25 @@
+const digitButtons = document.querySelectorAll('#digitButton');
+const operatorButtons = document.querySelectorAll('#operatorButton');
+const display = document.querySelector('.calculator-display');
+
+const allButtons = [...digitButtons, ...operatorButtons]; // combine
+
+let currentInput = '';
+
+allButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const input = button.textContent;
+        currentInput += input;
+        display.textContent = currentInput;
+    })
+})
+
+const resultButton = document.querySelector('#resultButton');
+
+resultButton.addEventListener("click", () => {
+    display.textContent(operate(currentInput));
+})
+
 let firstNumber;
 let operator;
 let secondNumber;
