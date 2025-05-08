@@ -1,12 +1,16 @@
 const digitButtons = document.querySelectorAll('#digitButton');
 const operatorButtons = document.querySelectorAll('#operatorButton');
 const display = document.querySelector('.calculator-display');
-
-const allButtons = [...digitButtons, ...operatorButtons]; // combine
+const clearButton = document.querySelector('.clearButton')
+const resultButton = document.querySelector('#resultButton');
 
 let currentInput = '';
+let firstNumber = null;
+let operator = null
+let secondNumber = null;
 
-allButtons.forEach(button => {
+//event listener for the number buttons
+digitButtons.forEach(button => {
     button.addEventListener("click", () => {
         const input = button.textContent;
         currentInput += input;
@@ -14,19 +18,34 @@ allButtons.forEach(button => {
     })
 })
 
-const resultButton = document.querySelector('#resultButton');
-
-resultButton.addEventListener("click", () => {
-    display.textContent(operate(currentInput));
+operatorButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        if (firstNumber === 0) {
+            firstNumber = Number(currentInput);
+            currentInput = '';
+        }
+        operator = button.textContent;
+        display.textContent = operator;
+    })
 })
 
-let firstNumber;
-let operator;
-let secondNumber;
+resultButton.addEventListener("click", () => {
+    if (firstNumber !== null && currentInput !== '') {
+        let secondNumber = Number(currentInput);
+        let result = operate(operator, firstNumber, secondNumber);
+        display.textContent = result;
+
+        firstNumber = result;
+        currentInput = '';
+        operator = null;
+    }
+})
+
 
 //Create a new function operate that takes an operator and two numbers and then calls one of the above functions on the numbers.
 
 function operate (operator, a, b) {
+
     switch (operator) {
         case '+':
             return sum(a, b);
