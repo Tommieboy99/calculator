@@ -48,6 +48,7 @@ operatorButtons.forEach(button => {
         operator = button.textContent;
         lastDisplay.textContent = `${operandOne} ${operator}`;
         shouldResetDisplay = true;
+        currentDisplay.textContent = "0";
     });
 });
 
@@ -69,6 +70,7 @@ resultButton.addEventListener('click', () => {
     currentDisplay.textContent = (typeof result === "number") 
     ? Math.round(result * 100) / 100 
     : result;
+    lastDisplay.textContent = `${operandOne} ${operator} ${operandTwo} = `;
     adjustFontSize();
 })
 
