@@ -54,6 +54,7 @@ operatorButtons.forEach(button => {
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
+
         if (currentDisplay.textContent === "0" || shouldResetDisplay) {
             currentDisplay.textContent = button.textContent;
             shouldResetDisplay = false;
