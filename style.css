@@ -16,7 +16,6 @@ body {
     width: 320px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 20px;
 }
@@ -30,7 +29,6 @@ h4 {
     background: #000;
     color: #0ff;
     font-size: 2rem;
-    text-align: right;
     padding: 20px;
     border-radius: 12px;
     box-shadow: inset 0 0 10px #0ff;
@@ -39,11 +37,13 @@ h4 {
     min-height: 64px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: end;
 }
 
 #lastDisplay {
-    text-align: left;
     font-size: 1.2rem;
+    margin-bottom: 5px;
 }
 
 .calculator-buttons {
